@@ -1,0 +1,27 @@
+version: '3.1'
+
+services:
+  postgres-db:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres-vol:/var/lib/postgresql/data
+      - ./scott.sql:/docker-entrypoint-initdb.d/scott.sql
+    environment:
+      POSTGRES_USER: abhishekp03
+      POSTGRES_PASSWORD: tiger
+      POSTGRES_DB: scott
+
+  adminer:
+    image: adminer
+    restart: always
+    depends_on: 
+      - postgres-db
+    ports:
+      - 8080:8080
+
+volumes:
+  postgres-vol:
+    driver: local
