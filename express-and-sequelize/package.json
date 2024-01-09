@@ -4,16 +4,15 @@
   "description": "Playing around with Sequelize and NodeJS",
   "main": "index.js",
   "scripts": {
-    "start-dev": "nodemon index.js",
+    "start-dev": "node --env-file=.dev.env index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Abhishek Pandey",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
     "sequelize": "^6.35.2"
-  },
-  "devDependencies": {
-    "nodemon": "^3.0.2"
   }
 }
