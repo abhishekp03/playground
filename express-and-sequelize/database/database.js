@@ -2,13 +2,13 @@ const Sequelize = require('sequelize')
 var pg = require('pg')
 const { Pool } = require('pg');
 
-var user = process.env.POSTGRES_USER
-var password = process.env.POSTGRES_PASSWORD
-var host = process.env.POSTGRES_HOST
-var port = process.env.POSTGRES_PORT
-var db = process.env.POSTGRES_DB
+var pgUser = process.env.POSTGRES_USER
+var pgPasswd = process.env.POSTGRES_PASSWORD
+var pgHost = process.env.POSTGRES_HOST
+var pgPort = process.env.POSTGRES_PORT
+var pgDb = process.env.POSTGRES_DB
 
-var pgUri=`postgres://${user}:${password}@${host}:${port}/${db}`
+var pgUri=`postgres://${pgUser}:${pgPasswd}@${pgHost}:${pgPort}/${pgDb}`
 const connectToDatabase = async () => {
     console.log('Connecting to the database ...')
     const sequelize = new Sequelize(pgUri, {
